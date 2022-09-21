@@ -88,8 +88,8 @@ resource "null_resource" "config" {
       "sudo yum install -y python3",
       "pip3 install --user ansible",
       "echo [servers] > inventory.txt",
-      "echo web_server_1 ansible_host=${aws_instance.nodes[1].private_ip}  ansible_ssh_private_key_file=~/${var.mykeypem}  ansible_user=ec2-user >> inventory.txt",
-      "echo web_server_2  ansible_host=${aws_instance.nodes[2].private_ip}  ansible_ssh_private_key_file=~/${var.mykeypem}  ansible_user=ubuntu >> inventory.txt",
+      "echo web_server_1 ansible_host=${aws_instance.nodes[1].private_ip}  ansible_ssh_private_key_file=~/${var.mykey}.pem  ansible_user=ec2-user >> inventory.txt",
+      "echo web_server_2  ansible_host=${aws_instance.nodes[2].private_ip}  ansible_ssh_private_key_file=~/${var.mykey}.pem  ansible_user=ubuntu >> inventory.txt",
       "chmod 400 ${var.mykey}.pem"
     ]
   }
